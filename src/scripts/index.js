@@ -6,13 +6,18 @@ import "../styles/main.scss";
 
 const modal = document.querySelector(".modal");
 
-const sixtySecondPromise = new Promise(() => {
+const sixtySecondPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    modal.style.display = "block";
+    resolve();
   }, 60000);
 });
 
+sixtySecondPromise.then(() => {
+  modal.style.display = "block";
+});
+
 const close = document.querySelector(".close");
+
 const closeWindow = () => {
   modal.style.display = "none";
 };
